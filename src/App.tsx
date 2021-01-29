@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Editor from "@monaco-editor/react";
+import { editor, KeyCode, KeyMod } from "monaco-editor";
 
-function App() {
+export const App = () => {
+  const [value, setValue] = useState("yaml: myyaml");
+  const [myEditor, setMyEditor] = useState<editor.IStandaloneCodeEditor>();
+
+  const saveDescriptor: editor.IActionDescriptor = {
+    id: "saveElement",
+    label: "save Element",
+    keybindings: [KeyMod.CtrlCmd | KeyCode.KEY_S],
+
+    run: (ed) => {
+      console.log("yuhu");
+    },
+  };
+
+  useEffect(() => {
+    if (myEditor === undefined) return;
+
+    myEditor.addAction(saveDescriptor);
+  }, [myEditor]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Editor
+        path="yamlPath"
+        language="yaml"
+        value={value}
+        onChange={(newValue) => {
+          setValue(newValue === undefined ? "" : newValue);
+        }}
+        onMount={(editor, monaco) => {
+          setMyEditor(editor);
+        }}
+      />
     </div>
   );
-}
-
-export default App;
+};
