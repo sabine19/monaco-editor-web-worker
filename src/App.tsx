@@ -5,20 +5,26 @@ import { editor, KeyCode, KeyMod } from "monaco-editor";
 
 const setupMonaco = () => {
   (window as any).MonacoEnvironment = {
-    getWorkerUrl(moduleId: string, label: string) {
-      console.log(
-        "getWorkerUrl called from Module '" +
-          moduleId +
-          "' and with label '" +
-          label +
-          "'"
-      );
-      // if (label === "yaml") {
-      //   return "/vs/yaml.worker.js";
-      // }
-      return process.env.PUBLIC_URL + "/vs/editor.worker.js";
+    getWorker: (moduleId: string, label: string): Worker => {
+      return new Worker(process.env.PUBLIC_URL + "/vs/editor/editor.worker");
     },
   };
+
+  // (window as any).MonacoEnvironment = {
+  //   getWorkerUrl(moduleId: string, label: string) {
+  //     console.log(
+  //       "getWorkerUrl called from Module '" +
+  //         moduleId +
+  //         "' and with label '" +
+  //         label +
+  //         "'"
+  //     );
+  //     // if (label === "yaml") {
+  //     //   return "/vs/yaml.worker.js";
+  //     // }
+  //     return process.env.PUBLIC_URL + "/vs/editor.worker.js";
+  //   },
+  //};
 };
 
 export const App = () => {
