@@ -44,3 +44,74 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Trials to get web workers running
+
+## npm install monaco-editor-webpack-plugin
+
+```terminal
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! While resolving: monaco-editor-rewired@0.1.0
+npm ERR! Found: monaco-editor@0.21.3
+npm ERR! node_modules/monaco-editor
+npm ERR!   monaco-editor@"^0.21.2" from the root project
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer monaco-editor@"0.22.x" from monaco-editor-webpack-plugin@3.0.0
+npm ERR! node_modules/monaco-editor-webpack-plugin
+npm ERR!   monaco-editor-webpack-plugin@"*" from the root project
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See C:\Users\birnc\AppData\Local\npm-cache\eresolve-report.txt for a full report.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\birnc\AppData\Local\npm-cache\_logs\2021-01-29T18_23_24_734Z-debug.log
+```
+
+## npm install copy-webpack-plugin --save-dev
+
+```terminal
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree
+npm ERR!
+npm ERR! Found: webpack@5.18.0
+npm ERR! node_modules/webpack
+npm ERR!   peer webpack@">=4.43.0 <6.0.0" from @pmmmwh/react-refresh-webpack-plugin@0.4.2
+npm ERR!   node_modules/@pmmmwh/react-refresh-webpack-plugin
+npm ERR!     @pmmmwh/react-refresh-webpack-plugin@"0.4.2" from react-scripts@4.0.1
+npm ERR!     node_modules/react-scripts
+npm ERR!       peer react-scripts@">=2.1.3" from react-app-rewired@2.1.8
+npm ERR!       node_modules/react-app-rewired
+npm ERR!         dev react-app-rewired@"^2.1.8" from the root project
+npm ERR!       1 more (the root project)
+npm ERR!   peer webpack@">=2" from babel-loader@8.1.0
+npm ERR!   node_modules/babel-loader
+npm ERR!     babel-loader@"8.1.0" from react-scripts@4.0.1
+npm ERR!     node_modules/react-scripts
+npm ERR!       peer react-scripts@">=2.1.3" from react-app-rewired@2.1.8
+npm ERR!       node_modules/react-app-rewired
+npm ERR!         dev react-app-rewired@"^2.1.8" from the root project
+npm ERR!       1 more (the root project)
+npm ERR!   12 more (css-loader, eslint-webpack-plugin, file-loader, ...)
+npm ERR!
+npm ERR! Could not resolve dependency:
+npm ERR! peer webpack@"^4.0.0" from optimize-css-assets-webpack-plugin@5.0.4
+npm ERR! node_modules/optimize-css-assets-webpack-plugin
+npm ERR!   optimize-css-assets-webpack-plugin@"5.0.4" from react-scripts@4.0.1
+npm ERR!   node_modules/react-scripts
+npm ERR!     peer react-scripts@">=2.1.3" from react-app-rewired@2.1.8
+npm ERR!     node_modules/react-app-rewired
+npm ERR!       dev react-app-rewired@"^2.1.8" from the root project
+npm ERR!     1 more (the root project)
+npm ERR!
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force, or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR!
+npm ERR! See C:\Users\birnc\AppData\Local\npm-cache\eresolve-report.txt for a full report.
+```
