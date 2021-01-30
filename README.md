@@ -49,7 +49,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## npm install monaco-editor-webpack-plugin
 
-```terminal
+```yaml
 npm ERR! code ERESOLVE
 npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR!
@@ -75,7 +75,7 @@ npm ERR!     C:\Users\birnc\AppData\Local\npm-cache\_logs\2021-01-29T18_23_24_73
 
 ## npm install copy-webpack-plugin --save-dev
 
-```terminal
+```yaml
 npm ERR! code ERESOLVE
 npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR!
@@ -115,3 +115,24 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 npm ERR!
 npm ERR! See C:\Users\birnc\AppData\Local\npm-cache\eresolve-report.txt for a full report.
 ```
+
+# Solutions
+
+## Solution 1 - Eject CRA App and use MonacoWebpackPlugin
+
+Ejecting Cra App gives you access to all the configs, also webpacks config.
+In this config the MonacoWebpackPlugin needs to be added and configured, so the web worker of monaco-editor gets bundled.
+
+```typescript
+new MonacoWebpackPlugin({
+  languages: ["yaml"],
+  filename: "[name].worker.js",
+});
+```
+
+## Solution 2 - React-App-Rewired Package with MonacoWebPackPlugin
+
+Versions that fit together:
+monaco-editor: ^0.21.2
+@monaco-editor/react: ^4.0.9
+monaco-editor-webpack-plugin: ^2.1.0
