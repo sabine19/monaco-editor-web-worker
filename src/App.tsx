@@ -13,10 +13,8 @@ const setupMonaco = () => {
           label +
           "'"
       );
-      // if (label === "yaml") {
-      //   return "/vs/yaml.worker.js";
-      // }
-      return process.env.PUBLIC_URL + "/vs/editor.worker.js";
+
+      return "/editor.worker.js";
     },
   };
 };
